@@ -14,7 +14,7 @@
 
         <!-- Tela inicial: Login -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

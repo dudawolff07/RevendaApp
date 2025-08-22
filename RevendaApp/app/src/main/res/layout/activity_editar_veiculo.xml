@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+    android:layout_marginBottom="8dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+
+
+<ImageView
+    android:id="@+id/imgCapaSelecionada"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:scaleType="centerCrop"
+    android:src="@drawable/ic_menu_gallery"
+    android:background="@drawable/bg_card"/>
+
+
+<Button
+android:id="@+id/btnSelecionarImagens"
+android:text="Selecionar Imagens"
+android:layout_marginTop="8dp"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"/>
+
+
+<EditText
+android:id="@+id/inputModelo"
+android:hint="@string/modelo"
+android:backgroundTint="@color/rev_outline"
+android:layout_marginTop="12dp"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"/>
+
+
+<AutoCompleteTextView
+android:id="@+id/inputMarca"
+android:hint="@string/marca"
+android:backgroundTint="@color/rev_outline"
+android:layout_marginTop="12dp"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"/>
+
+
+<AutoCompleteTextView
+android:id="@+id/inputCor"
+android:hint="@string/cor"
+android:backgroundTint="@color/rev_outline"
+android:layout_marginTop="12dp"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"/>
+
+
+<EditText
+android:id="@+id/inputAno"
+android:hint="@string/ano_label"
+android:inputType="number"
+android:backgroundTint="@color/rev_outline"
+android:layout_marginTop="12dp"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"/>
+
+
+<EditText
+android:id="@+id/inputPreco"
+android:hint="@string/preco_label"
+android:inputType="numberDecimal"
+android:backgroundTint="@color/rev_outline"
+android:layout_marginTop="12dp"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"/>
+
+
+<Button
+android:id="@+id/btnSalvar"
+android:text="@string/salvar_edicao"
+android:textColor="@color/white"
+android:background="@color/rev_bg_shape"
+android:layout_marginTop="16dp"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"/>
+    </LinearLayout>
+    </ScrollView>

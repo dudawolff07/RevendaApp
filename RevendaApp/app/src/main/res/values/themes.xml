@@ -1,9 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.RevendaApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Theme.RevendaApp" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/rev_bg_shape</item>
+        <item name="android:navigationBarColor">@color/rev_bg_shape</item>
+        <item name="colorPrimary">@color/rev_bg_shape</item>
+        <item name="colorOnPrimary">@color/rev_text_primary</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="material3:sliderStyle">@style/RevSlider</item>
+        <item name="material3:chipStyle">@style/RevChip</item>
+        <item name="material3:buttonStyle">@style/RevButton</item>
     </style>
 
-    <style name="Theme.RevendaApp" parent="Base.Theme.RevendaApp" />
+
+    <style name="RevButton" parent="Widget.Material3.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+
+    <style name="RevChip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipStrokeColor">@color/rev_outline</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipBackgroundColor">@color/rev_bg_app</item>
+        <item name="android:textColor">@color/rev_title</item>
+    </style>
+
+
+    <style name="RevSlider" parent="Widget.Material3.Slider">
+        <item name="trackColorInactive">@color/rev_slider_unselected</item>
+        <item name="trackColorActive">@color/rev_slider_selected</item>
+        <item name="thumbColor">@color/rev_slider_selected</item>
+    </style>
 </resources>

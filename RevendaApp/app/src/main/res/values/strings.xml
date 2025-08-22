@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">RevendaApp</string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="criar_conta">Criar nova conta</string>
+
+
+    <string name="nome_usuario">Nome de usuário</string>
+    <string name="confirmar_senha">Confirmar senha</string>
+    <string name="criar_cadastro">Criar Cadastro</string>
+
+
+    <string name="veiculos">Veículos</string>
+    <string name="detalhes">Detalhes</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="filtros">Filtros</string>
+    <string name="aplicar_filtros">Aplicar Filtros</string>
+    <string name="limpar_filtros">Limpar Filtros</string>
+    <string name="ordenar_por">Ordenar por</string>
+    <string name="preco">Preço</string>
+    <string name="ano">Ano</string>
+    <string name="nome">Nome</string>
+    <string name="marca">Marca</string>
+    <string name="cor">Cor</string>
+
+
+    <string name="adicionar_veiculo">Adicionar Veículo</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
+    <string name="criar">Criar</string>
+    <string name="salvar_edicao">Salvar</string>
+
+
+    <string name="modelo">Modelo</string>
+    <string name="preco_label">Preço</string>
+    <string name="ano_label">Ano</string>
 </resources>

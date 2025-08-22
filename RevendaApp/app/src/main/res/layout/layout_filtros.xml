@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+    android:layout_width="32dp"
+    android:layout_height="32dp"
+    android:background="@color/rev_cor_azul"/>
+    </LinearLayout>
+
+
+<TextView
+    android:text="@string/ordenar_por"
+    android:textColor="@color/rev_text_sidebar"
+    android:layout_marginTop="16dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+
+
+<com.google.android.material.radiogroup.MaterialRadioGroup
+android:id="@+id/rgOrdenacao"
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+<RadioButton
+    android:id="@+id/rbPreco"
+    android:text="@string/preco"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+<RadioButton
+    android:id="@+id/rbAno"
+    android:text="@string/ano"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+<RadioButton
+    android:id="@+id/rbNome"
+    android:text="@string/nome"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+</com.google.android.material.radiogroup.MaterialRadioGroup>
+
+
+<LinearLayout
+android:orientation="horizontal"
+android:gravity="end"
+android:layout_marginTop="16dp"
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+
+
+<Button
+    android:id="@+id/btnLimpar"
+    android:text="@string/limpar_filtros"
+    android:textColor="@color/white"
+    android:background="@drawable/btn_clear"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+
+
+<Button
+    android:id="@+id/btnAplicar"
+    android:text="@string/aplicar_filtros"
+    android:textColor="@color/white"
+    android:background="@drawable/btn_apply"
+    android:layout_marginStart="12dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+</LinearLayout>
+    </LinearLayout>
+    </ScrollView>

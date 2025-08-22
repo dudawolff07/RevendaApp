@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rev_bg_app">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:text="Cadastro"
+            android:textSize="28sp"
+            android:textColor="@color/rev_title"
+            android:fontFamily="@font/league_spartan"
+            android:layout_marginBottom="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <EditText
+            android:id="@+id/inputNome"
+            android:hint="@string/nome_usuario"
+            android:backgroundTint="@color/rev_outline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <EditText
+            android:id="@+id/inputEmail"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:backgroundTint="@color/rev_outline"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <EditText
+            android:id="@+id/inputSenha"
+            android:hint="@string/senha"
+            android:inputType="textPassword"
+            android:backgroundTint="@color/rev_outline"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <EditText
+            android:id="@+id/inputConfirmar"
+            android:hint="@string/confirmar_senha"
+            android:inputType="textPassword"
+            android:backgroundTint="@color/rev_outline"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <Button
+            android:id="@+id/btnCriarCadastro"
+            android:text="@string/criar_cadastro"
+            android:textColor="@color/white"
+            android:background="@color/rev_bg_shape"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>

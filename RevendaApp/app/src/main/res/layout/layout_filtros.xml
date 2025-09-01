@@ -1,65 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-    android:layout_width="32dp"
-    android:layout_height="32dp"
-    android:background="@color/rev_cor_azul"/>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rev_bg_sidebar"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="@string/filtros"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/rev_text_sidebar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="@string/favoritos"
+            android:textColor="@color/rev_text_sidebar"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <CheckBox
+            android:id="@+id/cbFavoritos"
+            android:text="@string/apenas_favoritos"
+            android:textColor="@color/rev_text_sidebar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="@string/preco"
+            android:textColor="@color/rev_text_sidebar"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <SeekBar
+            android:id="@+id/sbPreco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="1000000"
+            android:progress="500000"/>
+
+        <TextView
+            android:text="@string/marca"
+            android:textColor="@color/rev_text_sidebar"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Spinner
+            android:id="@+id/spMarca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="@string/cor"
+            android:textColor="@color/rev_text_sidebar"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <View
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@color/rev_cor_cinza"
+                android:layout_marginEnd="8dp"/>
+            <View
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@color/rev_cor_branco"
+                android:layout_marginEnd="8dp"/>
+            <View
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@color/rev_cor_azul"
+                android:layout_marginEnd="8dp"/>
+            <View
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@color/rev_cor_vermelho"
+                android:layout_marginEnd="8dp"/>
+            <View
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@color/rev_cor_prata"/>
+        </LinearLayout>
+
+        <TextView
+            android:text="@string/ordenar_por"
+            android:textColor="@color/rev_text_sidebar"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioGroup
+            android:id="@+id/rgOrdenacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rbPreco"
+                android:text="@string/preco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RadioButton
+                android:id="@+id/rbAno"
+                android:text="@string/ano"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RadioButton
+                android:id="@+id/rbNome"
+                android:text="@string/nome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RadioGroup>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnLimpar"
+                android:text="@string/limpar_filtros"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/rev_botao_limpar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnAplicar"
+                android:text="@string/aplicar_filtros"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/rev_botao_aplicar"
+                android:layout_marginStart="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
     </LinearLayout>
-
-
-<TextView
-    android:text="@string/ordenar_por"
-    android:textColor="@color/rev_text_sidebar"
-    android:layout_marginTop="16dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
-
-
-<com.google.android.material.radiogroup.MaterialRadioGroup
-android:id="@+id/rgOrdenacao"
-android:layout_width="match_parent"
-android:layout_height="wrap_content">
-<RadioButton
-    android:id="@+id/rbPreco"
-    android:text="@string/preco"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
-<RadioButton
-    android:id="@+id/rbAno"
-    android:text="@string/ano"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
-<RadioButton
-    android:id="@+id/rbNome"
-    android:text="@string/nome"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
-</com.google.android.material.radiogroup.MaterialRadioGroup>
-
-
-<LinearLayout
-android:orientation="horizontal"
-android:gravity="end"
-android:layout_marginTop="16dp"
-android:layout_width="match_parent"
-android:layout_height="wrap_content">
-
-
-<Button
-    android:id="@+id/btnLimpar"
-    android:text="@string/limpar_filtros"
-    android:textColor="@color/white"
-    android:background="@drawable/btn_clear"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
-
-
-<Button
-    android:id="@+id/btnAplicar"
-    android:text="@string/aplicar_filtros"
-    android:textColor="@color/white"
-    android:background="@drawable/btn_apply"
-    android:layout_marginStart="12dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
-</LinearLayout>
-    </LinearLayout>
-    </ScrollView>
+</ScrollView>

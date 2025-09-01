@@ -1,80 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-    android:scaleType="centerCrop"
-    android:src="@drawable/ic_menu_gallery"
-    android:background="@drawable/bg_card"/>
-
-
-<ImageButton
-    android:id="@+id/btnFavorito"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
-    android:layout_alignTop="@id/imgCapa"
-    android:layout_alignEnd="@id/imgCapa"
-    android:layout_margin="8dp"
-    android:background="@android:color/transparent"
-    android:contentDescription="Favoritar"
-    android:tint="@color/rev_fav_off"
-    android:src="@android:drawable/btn_star_big_off"/>
-
-
-<LinearLayout
-android:orientation="vertical"
-android:layout_below="@id/imgCapa"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:paddingTop="8dp">
-
-
-<TextView
-    android:id="@+id/tvModelo"
-    android:text="Kwid 2025"
-    android:textStyle="bold"
-    android:textSize="18sp"
-    android:textColor="@color/rev_title"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
-
-
-<TextView
-    android:id="@+id/tvAnoPreco"
-    android:text="2025 • R$ 77.000,00"
-    android:textColor="@color/rev_title"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
-
-
-<LinearLayout
-    android:orientation="horizontal"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="end"
-    android:paddingTop="8dp">
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnDetalhes"
-        android:text="@string/detalhes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/ivFoto"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder_car" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
 
-    <Button
-        android:id="@+id/btnEditar"
-        android:text="@string/editar"
-        android:visibility="gone"
-        android:layout_marginStart="8dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvModelo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="16sp" />
 
+            <ImageView
+                android:id="@+id/ivFavorito"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_favorite_border"
+                android:tint="@color/colorFavoritoDesabilitado" />
 
-    <Button
-        android:id="@+id/btnExcluir"
-        android:text="@string/excluir"
-        android:visibility="gone"
-        android:layout_marginStart="8dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
-</LinearLayout>
-    </RelativeLayout>
-    </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvAno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvPreco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,53 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/rev_bg_app">
 
-
-<LinearLayout
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-
-    <include layout="@layout/include_toolbar"/>
-
-
-    <!-- Carrossel simples (substituir por ViewPager/Recycler se quiser) -->
-    <ImageView
-        android:id="@+id/imgPrincipal"
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_menu_gallery"
-        android:background="@drawable/bg_card"/>
+        android:layout_height="wrap_content">
 
+        <include layout="@layout/include_toolbar"/>
 
-    <TextView
-        android:id="@+id/tvModeloDetalhe"
-        android:text="Modelo X"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/rev_title"
-        android:layout_marginTop="12dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerImagens"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="12dp"/>
 
+        <LinearLayout
+            android:id="@+id/layoutIndicadores"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
 
-    <TextView
-        android:id="@+id/tvMarcaCorAno"
-        android:text="Marca • Cor • 2025"
-        android:textColor="@color/rev_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvModeloDetalhe"
+            android:text="Modelo X"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/rev_title"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
+        <TextView
+            android:id="@+id/tvMarcaCorAno"
+            android:text="Marca • Cor • 2025"
+            android:textColor="@color/rev_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/tvPrecoDetalhe"
-        android:text="R$ 0,00"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:textColor="@color/rev_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
-    </ScrollView>
+        <TextView
+            android:id="@+id/tvPrecoDetalhe"
+            android:text="R$ 0,00"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/rev_title"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnFavoritarDetalhes"
+            android:text="Favoritar"
+            android:textColor="@color/white"
+            android:background="@color/rev_bg_shape"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>

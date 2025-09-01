@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -29,6 +30,7 @@
         <activity android:name=".activities.DetalhesActivity"/>
         <activity android:name=".activities.CriarVeiculoActivity"/>
         <activity android:name=".activities.EditarVeiculoActivity"/>
-    </application>
+    </application
+    >
 
 </manifest>

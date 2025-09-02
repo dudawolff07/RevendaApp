@@ -18,9 +18,7 @@
             android:id="@+id/ivFoto"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/placeholder_car" />
-
+            android:scaleType="centerCrop"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,9 +36,7 @@
             <ImageView
                 android:id="@+id/ivFavorito"
                 android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_favorite_border"
-                android:tint="@color/colorFavoritoDesabilitado" />
+                android:layout_height="24dp" />
 
         </LinearLayout>
 
@@ -56,7 +52,7 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/rev_text_primary" />
 
     </LinearLayout>
 

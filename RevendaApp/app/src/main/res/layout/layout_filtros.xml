@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/rev_bg_sidebar"
+    android:background="@color/rev_sidebar_bg"
     android:padding="16dp">
 
     <LinearLayout
@@ -28,7 +28,7 @@
 
         <CheckBox
             android:id="@+id/cbFavoritos"
-            android:text="@string/apenas_favoritos"
+            android:text="@string/favoritos"
             android:textColor="@color/rev_text_sidebar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -138,7 +138,7 @@
                 android:id="@+id/btnLimpar"
                 android:text="@string/limpar_filtros"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/rev_botao_limpar"
+                android:backgroundTint="@color/rev_btn_clear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -146,7 +146,7 @@
                 android:id="@+id/btnAplicar"
                 android:text="@string/aplicar_filtros"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/rev_botao_aplicar"
+                android:backgroundTint="@color/rev_btn_apply"
                 android:layout_marginStart="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

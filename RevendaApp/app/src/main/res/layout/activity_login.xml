@@ -16,7 +16,7 @@
         android:text="Revenda"
         android:textSize="32sp"
         android:textColor="@color/rev_title"
-        android:fontFamily="@font/league_spartan"
+        android:fontFamily="@font/leaguespartan"
         android:layout_marginBottom="24dp"/>
 
 

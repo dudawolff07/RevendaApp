@@ -15,7 +15,7 @@
 
         <!-- Tela inicial: Login -->
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,12 +24,12 @@
         </activity>
 
         <!-- Outras telas -->
-        <activity android:name=".activities.CadastroActivity"/>
-        <activity android:name=".activities.MainActivity"/>
-        <activity android:name=".activities.AdminMainActivity"/>
-        <activity android:name=".activities.DetalhesActivity"/>
-        <activity android:name=".activities.CriarVeiculoActivity"/>
-        <activity android:name=".activities.EditarVeiculoActivity"/>
+        <activity android:name=".activity.CadastroActivity"/>
+        <activity android:name=".activity.MainActivity"/>
+        <activity android:name=".activity.AdminMainActivity"/>
+        <activity android:name=".activity.DetalhesActivity"/>
+        <activity android:name=".activity.CriarVeiculoActivity"/>
+        <activity android:name=".activity.EditarVeiculoActivity"/>
     </application
     >
 

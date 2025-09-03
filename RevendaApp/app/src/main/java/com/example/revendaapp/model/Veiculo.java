@@ -1,6 +1,8 @@
 package com.example.revendaapp.model;
 
-public class Veiculo {
+import java.io.Serializable;
+
+public class Veiculo implements Serializable {
     private int idVeiculo;
     private String marca;
     private String modelo;

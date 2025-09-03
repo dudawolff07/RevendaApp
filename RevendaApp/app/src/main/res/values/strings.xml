@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">RevendaApp</string>
+    <string name="name">Julião</string>
+    <string name="revenda">Revenda</string>
+    <string name="login">LOGIN</string>
     <string name="email">E-mail</string>
     <string name="senha">Senha</string>
     <string name="entrar">Entrar</string>

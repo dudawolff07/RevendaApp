@@ -3,126 +3,116 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFFFF">
+    android:background="#E0E0E0"> <!-- fundo cinza -->
 
-    <!-- Layout principal -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="8dp">
 
-        <!-- Cabeçalho -->
+        <!-- Cabeçalho com fundo arredondado -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp"
-            android:background="#FFFFFFFF"
+            android:background="@drawable/bg_header"
             android:elevation="4dp">
 
-            <!-- Primeira linha: Título Julião Revenda -->
+            <!-- Título e botão filtro -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_botao_principal">
 
+                <!-- Logo e título -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:orientation="vertical">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Julião"
-                        android:textColor="#FF000000"
-                        android:textSize="24sp"
+                        android:text="@string/name"
+                        android:fontFamily="@font/glikerbold"
+                        android:textColor="@color/rev_title"
+                        android:textSize="28sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Revenda"
-                        android:textColor="#FF000000"
-                        android:textSize="20sp"
-                        android:layout_marginTop="2dp"/>
+                        android:text="@string/revenda"
+                        android:fontFamily="@font/glikerbold"
+                        android:textColor="@color/rev_title"
+                        android:textSize="24sp"
+                        android:layout_marginTop="-4dp"/>
                 </LinearLayout>
 
-                <!-- Botão SAIR com ícone -->
-                <Button
-                    android:id="@+id/btnFiltrar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Filtrar"
-                    android:textColor="#FF000000"
-                    android:gravity="center"
-                    android:background="@android:color/transparent"
-                    android:textSize="16sp"
-                    style="?attr/borderlessButtonStyle"/>
-
-                <TextView
+                <!-- Botões Filtrar e Ordenar -->
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="   "
-                    android:textSize="16sp"/>
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_button"
+                    android:gravity="center">
 
-                <Button
-                    android:id="@+id/btnOrdenar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Ordenar"
-                    android:textColor="#FF000000"
-                    android:gravity="center"
-                    android:background="@android:color/transparent"
-                    android:textSize="16sp"
-                    style="?attr/borderlessButtonStyle"/>
+                    <Button
+                        android:id="@+id/btnFiltrar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/filtro"
+                        android:text="@string/filtros"
+                        android:textColor="#000000"
+                        android:background="@android:color/transparent"
+                        android:textSize="14sp"
+                        style="?attr/borderlessButtonStyle" />
+
+
+                </LinearLayout>
             </LinearLayout>
 
-            <!-- Segunda linha: Filtrar e Ordenar juntos -->
+            <!-- Linha com botão sair e FAB central -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="16dp"
-                android:gravity="center">
+                android:gravity="center"
+                android:background="@drawable/bg_header">
 
                 <Button
-                    android:id="@+id/btnFiltrar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Filtrar"
-                    android:textColor="#FF000000"
-                    android:gravity="center"
-                    android:background="@android:color/transparent"
-                    android:textSize="16sp"
-                    style="?attr/borderlessButtonStyle"/>
-
-                <TextView
+                    android:id="@+id/btnSair"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="   "
-                    android:textSize="16sp"/>
-
-                <Button
-                    android:id="@+id/btnOrdenar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Ordenar"
-                    android:textColor="#FF000000"
-                    android:gravity="center"
+                    android:text="SAIR"
+                    android:textAllCaps="true"
+                    android:textColor="#000000"
+                    android:drawableLeft="@drawable/ic_logout"
                     android:background="@android:color/transparent"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
+                    android:padding="8dp"
                     style="?attr/borderlessButtonStyle"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabAdicionar"
+                    android:layout_width="181dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:contentDescription="Adicionar veículo"
+                    app:background="@drawable/bg_botao_principal"
+                    app:srcCompat="@drawable/ic_add" />
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Lista de Veículos -->
+        <!-- Lista de veículos em cards -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvVeiculosAdmin"
             android:layout_width="match_parent"
@@ -130,20 +120,7 @@
             android:layout_weight="1"
             android:padding="8dp"
             android:clipToPadding="false"
-            android:background="#FFFFFFFF"/>
+            android:background="@android:color/transparent"/>
     </LinearLayout>
-
-    <!-- Botão Flutuante de Adicionar -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAdicionar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:contentDescription="Adicionar veículo"
-        app:backgroundTint="#FF6200EE"
-        app:tint="#FFFFFFFF"
-        app:layout_anchor="@id/rvVeiculosAdmin"
-        app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

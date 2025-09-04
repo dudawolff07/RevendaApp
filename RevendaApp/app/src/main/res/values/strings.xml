@@ -17,7 +17,7 @@
     <string name="veiculos">Veículos</string>
     <string name="detalhes">Detalhes</string>
     <string name="favoritos">Favoritos</string>
-    <string name="filtros">Filtros</string>
+    <string name="filtros">Filtrar\n Ordenar</string>
     <string name="aplicar_filtros">Aplicar Filtros</string>
     <string name="limpar_filtros">Limpar Filtros</string>
     <string name="ordenar_por">Ordenar por</string>

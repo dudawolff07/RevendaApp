@@ -79,7 +79,8 @@ public class MainActivity extends AppCompatActivity implements VeiculoAdapter.On
     }
 
     private void abrirFiltros() {
-        Toast.makeText(this, "Abrir filtros", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, FiltrosActivity.class);
+        startActivity(intent);
     }
 
     private void fazerLogout() {

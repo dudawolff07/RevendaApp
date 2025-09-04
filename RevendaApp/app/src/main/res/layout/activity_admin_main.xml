@@ -3,30 +3,147 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/rev_bg_app">
+    android:background="#FFFFFFFF">
 
-
+    <!-- Layout principal -->
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <include layout="@layout/include_toolbar"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Cabeçalho -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="#FFFFFFFF"
+            android:elevation="4dp">
+
+            <!-- Primeira linha: Título Julião Revenda -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Julião"
+                        android:textColor="#FF000000"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Revenda"
+                        android:textColor="#FF000000"
+                        android:textSize="20sp"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+
+                <!-- Botão SAIR com ícone -->
+                <Button
+                    android:id="@+id/btnFiltrar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Filtrar"
+                    android:textColor="#FF000000"
+                    android:gravity="center"
+                    android:background="@android:color/transparent"
+                    android:textSize="16sp"
+                    style="?attr/borderlessButtonStyle"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="   "
+                    android:textSize="16sp"/>
+
+                <Button
+                    android:id="@+id/btnOrdenar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Ordenar"
+                    android:textColor="#FF000000"
+                    android:gravity="center"
+                    android:background="@android:color/transparent"
+                    android:textSize="16sp"
+                    style="?attr/borderlessButtonStyle"/>
+            </LinearLayout>
+
+            <!-- Segunda linha: Filtrar e Ordenar juntos -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnFiltrar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Filtrar"
+                    android:textColor="#FF000000"
+                    android:gravity="center"
+                    android:background="@android:color/transparent"
+                    android:textSize="16sp"
+                    style="?attr/borderlessButtonStyle"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="   "
+                    android:textSize="16sp"/>
+
+                <Button
+                    android:id="@+id/btnOrdenar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Ordenar"
+                    android:textColor="#FF000000"
+                    android:gravity="center"
+                    android:background="@android:color/transparent"
+                    android:textSize="16sp"
+                    style="?attr/borderlessButtonStyle"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Lista de Veículos -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvVeiculosAdmin"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8dp"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:clipToPadding="false"
+            android:background="#FFFFFFFF"/>
     </LinearLayout>
 
-
+    <!-- Botão Flutuante de Adicionar -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAdicionar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:contentDescription="@string/adicionar_veiculo"
+        android:contentDescription="Adicionar veículo"
+        app:backgroundTint="#FF6200EE"
+        app:tint="#FFFFFFFF"
+        app:layout_anchor="@id/rvVeiculosAdmin"
         app:layout_anchorGravity="bottom|end"
-        app:backgroundTint="@color/rev_bg_shape"
-        app:tint="@color/rev_text_primary"
-        app:srcCompat="@android:drawable/ic_input_add"/>
+        app:srcCompat="@android:drawable/ic_input_add" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

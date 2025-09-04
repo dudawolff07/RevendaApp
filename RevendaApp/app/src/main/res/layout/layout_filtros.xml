@@ -11,56 +11,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- Favoritos -->
         <TextView
-            android:text="@string/filtros"
-            android:textSize="20sp"
+            android:text="Favoritos"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/rev_text_sidebar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <TextView
-            android:text="@string/favoritos"
-            android:textColor="@color/rev_text_sidebar"
-            android:layout_marginTop="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
         <CheckBox
             android:id="@+id/cbFavoritos"
-            android:text="@string/favoritos"
-            android:textColor="@color/rev_text_sidebar"
+            android:layout_marginTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+        <!-- Preço -->
         <TextView
-            android:text="@string/preco"
-            android:textColor="@color/rev_text_sidebar"
-            android:layout_marginTop="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <SeekBar
-            android:id="@+id/sbPreco"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:max="1000000"
-            android:progress="500000"/>
-
-        <TextView
-            android:text="@string/marca"
-            android:textColor="@color/rev_text_sidebar"
-            android:layout_marginTop="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <Spinner
-            android:id="@+id/spMarca"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:text="@string/cor"
+            android:text="Preço"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:textColor="@color/rev_text_sidebar"
             android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
@@ -72,34 +42,77 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp">
 
-            <View
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@color/rev_cor_cinza"
-                android:layout_marginEnd="8dp"/>
-            <View
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@color/rev_cor_branco"
-                android:layout_marginEnd="8dp"/>
-            <View
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@color/rev_cor_azul"
-                android:layout_marginEnd="8dp"/>
-            <View
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@color/rev_cor_vermelho"
-                android:layout_marginEnd="8dp"/>
-            <View
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@color/rev_cor_prata"/>
+            <EditText
+                android:id="@+id/etPrecoMin"
+                android:hint="min"
+                android:inputType="number"
+                android:background="@drawable/bg_input"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/etPrecoMax"
+                android:hint="max"
+                android:inputType="number"
+                android:background="@drawable/bg_input"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/rsPreco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="20000"
+            android:valueTo="100000"
+            app:values="@array/preco_inicial"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Marca -->
         <TextView
-            android:text="@string/ordenar_por"
+            android:text="Marca"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/rev_text_sidebar"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/containerMarcas"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Cor -->
+        <TextView
+            android:text="Cor"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/rev_text_sidebar"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/containerCores"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Ordem -->
+        <TextView
+            android:text="Ordem"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:textColor="@color/rev_text_sidebar"
             android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
@@ -108,25 +121,43 @@
         <RadioGroup
             android:id="@+id/rgOrdenacao"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp">
 
             <RadioButton
-                android:id="@+id/rbPreco"
-                android:text="@string/preco"
+                android:id="@+id/rbMaisCaro"
+                android:text="Do mais caro ao mais barato"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
             <RadioButton
-                android:id="@+id/rbAno"
-                android:text="@string/ano"
+                android:id="@+id/rbMaisBarato"
+                android:text="Do mais barato ao mais caro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
             <RadioButton
-                android:id="@+id/rbNome"
-                android:text="@string/nome"
+                android:id="@+id/rbAlfabetica"
+                android:text="Ordem alfabética"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/rbMaisNovo"
+                android:text="Mais novo ao mais antigo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/rbMaisAntigo"
+                android:text="Mais antigo ao mais novo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </RadioGroup>
 
+
+        <!-- Botões -->
         <LinearLayout
             android:orientation="horizontal"
             android:gravity="end"
@@ -136,17 +167,19 @@
 
             <Button
                 android:id="@+id/btnLimpar"
-                android:text="@string/limpar_filtros"
+                android:text="LIMPAR"
+                android:textStyle="bold"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/rev_btn_clear"
+                android:background="@drawable/btn_clear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <Button
                 android:id="@+id/btnAplicar"
-                android:text="@string/aplicar_filtros"
+                android:text="APLICAR"
+                android:textStyle="bold"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/rev_btn_apply"
+                android:background="@drawable/btn_apply"
                 android:layout_marginStart="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

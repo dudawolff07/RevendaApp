@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "sistema_veiculos.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2; // IMPORTANTE: subir versão para recriar as tabelas
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -23,12 +23,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "tipo TEXT NOT NULL" +
                 ");");
 
+        db.execSQL("CREATE TABLE marca (" +
+                "idMarca INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "nome TEXT NOT NULL UNIQUE" +
+                ");");
+
+        db.execSQL("CREATE TABLE cor (" +
+                "idCor INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "nome TEXT NOT NULL UNIQUE" +
+                ");");
+
         db.execSQL("CREATE TABLE veiculo (" +
                 "idVeiculo INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "marca TEXT NOT NULL," +
+                "marca TEXT NOT NULL," +   // se quiser pode trocar para FK_idMarca
                 "modelo TEXT NOT NULL," +
                 "ano INTEGER," +
-                "cor TEXT NOT NULL," +
+                "cor TEXT NOT NULL," +     // idem: poderia ser FK_idCor
                 "preco REAL," +
                 "fotoCapa TEXT" +
                 ");");
@@ -51,6 +61,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Inserindo admin padrão
         db.execSQL("INSERT INTO usuario (nome, email, senha, tipo) " +
                 "VALUES ('Admin Padrão', 'admin@sistema.com', 'admin123', 'Administrador');");
+
+        // Inserindo marcas
+        db.execSQL("INSERT INTO marca (nome) VALUES " +
+                "('Chevrolet')," +
+                "('Volkswagen')," +
+                "('Renault')," +
+                "('Fiat')," +
+                "('Hyundai')," +
+                "('Peugeot')," +
+                "('Citroën');");
+
+        // Inserindo cores
+        db.execSQL("INSERT INTO cor (nome) VALUES " +
+                "('Cinza')," +
+                "('Vermelho')," +
+                "('Branco')," +
+                "('Prata')," +
+                "('Azul')," +
+                "('Preto');");
     }
 
     @Override
@@ -58,6 +87,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS favorito");
         db.execSQL("DROP TABLE IF EXISTS fotos");
         db.execSQL("DROP TABLE IF EXISTS veiculo");
+        db.execSQL("DROP TABLE IF EXISTS cor");
+        db.execSQL("DROP TABLE IF EXISTS marca");
         db.execSQL("DROP TABLE IF EXISTS usuario");
         onCreate(db);
     }

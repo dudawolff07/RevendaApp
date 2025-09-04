@@ -1,96 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/rev_bg_app">
+    android:background="@color/rev_bg_app"
+    android:fillViewport="true">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:padding="24dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-        <TextView
-            android:text="Adicionar Veículo"
-            android:textSize="28sp"
-            android:textColor="@color/rev_title"
-            android:fontFamily="@font/leaguespartan"
-            android:layout_marginBottom="16dp"
+        <!-- Título principal -->
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="40dp">
 
-        <TextView
-            android:text="Imagem de capa:"
-            android:textColor="@color/rev_title"
-            android:layout_marginBottom="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Julião"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                android:textColor="@color/rev_title"
+                android:fontFamily="@font/glikerbold"/>
 
-        <ImageView
-            android:id="@+id/imgCapaSelecionada"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Revenda"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                android:textColor="@color/rev_title"
+                android:fontFamily="@font/glikerbold"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:scaleType="centerCrop"
-            android:background="@drawable/bg_card"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <Button
-            android:id="@+id/btnSelecionarImagens"
-            android:text="Selecionar Imagens"
-            android:textColor="@color/white"
-            android:background="@color/rev_bg_shape"
-            android:layout_marginTop="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="CRIAR"
+                android:textAlignment="center"
+                android:textColor="@color/rev_title_secondary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/inputModelo"
-            android:hint="@string/modelo"
-            android:backgroundTint="@color/rev_outline"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <!-- Imagem Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="8dp">
 
-        <AutoCompleteTextView
-            android:id="@+id/inputMarca"
-            android:hint="@string/marca"
-            android:backgroundTint="@color/rev_outline"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/btnAddImagemCard"
+                    android:layout_width="66dp"
+                    android:layout_height="62dp"
+                    android:background="@drawable/bg_add_button"
+                    android:text="+"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="16dp"/>
 
-        <AutoCompleteTextView
-            android:id="@+id/inputCor"
-            android:hint="@string/cor"
-            android:backgroundTint="@color/rev_outline"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Imagem card"
+                    android:textColor="@color/rev_title_secondary"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/inputAno"
-            android:hint="@string/ano_label"
-            android:inputType="number"
-            android:backgroundTint="@color/rev_outline"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <!-- Imagens Carrossel -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="8dp">
 
-        <EditText
-            android:id="@+id/inputPreco"
-            android:hint="@string/preco_label"
-            android:inputType="numberDecimal"
-            android:backgroundTint="@color/rev_outline"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/btnSelecionarImagens"
+                    android:layout_width="66dp"
+                    android:layout_height="62dp"
+                    android:background="@drawable/bg_add_button"
+                    android:text="+"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="16dp"/>
 
-        <Button
-            android:id="@+id/btnCriar"
-            android:text="@string/criar"
-            android:textColor="@color/white"
-            android:background="@color/rev_bg_shape"
-            android:layout_marginTop="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Imagens carrossel"
+                    android:textColor="@color/rev_title_secondary"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Campos de entrada -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:boxBackgroundMode="outline"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeColor="@color/rev_cor_cinza">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputModelo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Modelo" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Spinner Marca -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Marca"
+                    android:textColor="@color/rev_title_secondary"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spinnerMarca"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_input"
+                    android:padding="12dp"/>
+            </LinearLayout>
+
+            <!-- Spinner Cor -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Cor"
+                    android:textColor="@color/rev_title_secondary"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spinnerCor"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_input"
+                    android:padding="12dp"/>
+            </LinearLayout>
+
+            <!-- Ano -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:boxBackgroundMode="outline"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeColor="@color/rev_outline">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputAno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ano"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Preço -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:boxBackgroundMode="outline"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeColor="@color/rev_outline">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputPreco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Preço"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Botão Criar -->
+            <Button
+                android:id="@+id/btnCriar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_botao_principal"
+                android:text="Criar"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

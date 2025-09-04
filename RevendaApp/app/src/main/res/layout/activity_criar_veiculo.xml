@@ -117,14 +117,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                app:boxBackgroundMode="outline"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeColor="@color/rev_cor_cinza">
+                android:background="@drawable/bg_botao_principal">
 
-                <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputModelo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/rev_text_primary"
                     android:hint="Modelo" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,8 +146,9 @@
                     android:id="@+id/spinnerMarca"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@drawable/bg_input"
-                    android:padding="12dp"/>
+                    android:text="Marca"
+                    android:background="@drawable/bg_botao_principal"
+                    android:padding="12dp" />
             </LinearLayout>
 
             <!-- Spinner Cor -->
@@ -170,7 +170,7 @@
                     android:id="@+id/spinnerCor"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@drawable/bg_input"
+                    android:background="@drawable/bg_botao_principal"
                     android:padding="12dp"/>
             </LinearLayout>
 
@@ -179,11 +179,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                app:boxBackgroundMode="outline"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeColor="@color/rev_outline">
+                android:background="@drawable/bg_botao_principal">
 
-                <com.google.android.material.textfield.TextInputEditText
+
+            <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputAno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -196,11 +195,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                app:boxBackgroundMode="outline"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeColor="@color/rev_outline">
+                android:background="@drawable/bg_botao_principal">
 
-                <com.google.android.material.textfield.TextInputEditText
+
+            <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputPreco"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

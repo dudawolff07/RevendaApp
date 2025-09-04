@@ -7,7 +7,6 @@
     android:layout_margin="8dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="6dp"
-    android:backgroundTint="@android:color/white"
     app:cardBackgroundColor="@android:color/white"
     app:cardPreventCornerOverlap="false">
 
@@ -15,13 +14,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg_card"
         android:padding="8dp">
 
         <!-- Foto -->
         <ImageView
             android:id="@+id/ivFoto"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="160dp"
             android:scaleType="centerCrop"
             android:background="@drawable/bg_card_image"
             android:contentDescription="@string/app_name"/>
@@ -34,22 +35,24 @@
             android:layout_marginTop="6dp"
             android:gravity="center_vertical">
 
-            <TextView
-                android:id="@+id/tvModelo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Kwid"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="@android:color/black"/>
-
             <ImageView
                 android:id="@+id/ivFavorito"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_star_border"
-                android:tint="@android:color/black"/>
+                android:color="@color/black"
+                android:layout_marginEnd="20dp"/>
+
+            <TextView
+                android:id="@+id/tvModelo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Kwid"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"/>
+
         </LinearLayout>
 
         <!-- Ano -->
@@ -68,7 +71,7 @@
             android:text="Preço: R$77.000,00"
             android:textStyle="bold"
             android:textSize="15sp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="6dp"
             android:paddingHorizontal="8dp"
             android:paddingVertical="4dp"
             android:background="@drawable/bg_preco"
@@ -77,12 +80,13 @@
         <!-- Ver detalhes -->
         <TextView
             android:id="@+id/tvDetalhes"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Ver detalhes"
             android:textStyle="bold"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="@color/rev_text_sidebar"
-            android:layout_marginTop="6dp"/>
+            android:layout_marginTop="8dp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

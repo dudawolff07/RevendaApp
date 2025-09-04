@@ -1,96 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/rev_bg_app">
+    android:background="@color/rev_bg_app"
+    android:fillViewport="true">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:padding="24dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-        <TextView
-            android:text="Editar Veículo"
-            android:textSize="28sp"
-            android:textColor="@color/rev_title"
-            android:fontFamily="@font/leaguespartan"
-            android:layout_marginBottom="16dp"
+        <!-- Título principal -->
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="40dp">
 
-        <TextView
-            android:text="Imagem de capa:"
-            android:textColor="@color/rev_title"
-            android:layout_marginBottom="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Julião"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                android:textColor="@color/rev_title"
+                android:fontFamily="@font/glikerbold"/>
 
-        <ImageView
-            android:id="@+id/imgCapaSelecionada"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Revenda"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                android:textColor="@color/rev_title"
+                android:fontFamily="@font/glikerbold"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:scaleType="centerCrop"
-            android:background="@drawable/bg_card"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <Button
-            android:id="@+id/btnSelecionarImagens"
-            android:text="Selecionar Imagens"
-            android:textColor="@color/white"
-            android:background="@color/rev_bg_shape"
-            android:layout_marginTop="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="EDITAR"
+                android:textAlignment="center"
+                android:textColor="@color/rev_title_secondary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/inputModelo"
-            android:hint="@string/modelo"
-            android:backgroundTint="@color/rev_outline"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <!-- Imagem de capa -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
 
-        <AutoCompleteTextView
-            android:id="@+id/inputMarca"
-            android:hint="@string/marca"
-            android:backgroundTint="@color/rev_outline"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Imagem de capa:"
+                    android:textColor="@color/rev_title_secondary"
+                    android:textSize="16sp" />
 
-        <AutoCompleteTextView
-            android:id="@+id/inputCor"
-            android:hint="@string/cor"
-            android:backgroundTint="@color/rev_outline"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+                <ImageView
+                    android:id="@+id/imgCapaSelecionada"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/bg_card"/>
 
-        <EditText
-            android:id="@+id/inputAno"
-            android:hint="@string/ano_label"
-            android:inputType="number"
-            android:backgroundTint="@color/rev_outline"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/btnSelecionarCapa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selecionar Imagem"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_add_button"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/inputPreco"
-            android:hint="@string/preco_label"
-            android:inputType="numberDecimal"
-            android:backgroundTint="@color/rev_outline"
-            android:layout_marginTop="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <!-- Campos de entrada -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_botao_principal">
 
-        <Button
-            android:id="@+id/btnSalvar"
-            android:text="@string/salvar_edicao"
-            android:textColor="@color/white"
-            android:background="@color/rev_bg_shape"
-            android:layout_marginTop="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputModelo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/rev_text_primary"
+                    android:hint="Modelo" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Spinner Marca -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Marca"
+                    android:textColor="@color/rev_title_secondary"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/inputMarca"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_botao_principal"
+                    android:padding="12dp" />
+            </LinearLayout>
+
+            <!-- Spinner Cor -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Cor"
+                    android:textColor="@color/rev_title_secondary"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/inputCor"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_botao_principal"
+                    android:padding="12dp"/>
+            </LinearLayout>
+
+            <!-- Ano -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_botao_principal">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputAno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ano"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Preço -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_botao_principal">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputPreco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Preço"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Botão Salvar -->
+            <Button
+                android:id="@+id/btnSalvar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_botao_principal"
+                android:text="Salvar"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

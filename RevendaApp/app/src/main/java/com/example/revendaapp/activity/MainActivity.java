@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements VeiculoAdapter.On
 
     private void inicializarViews() {
         rvVeiculos = findViewById(R.id.rvVeiculos);
-        rvVeiculos.setLayoutManager(new LinearLayoutManager(this));
+        rvVeiculos.setLayoutManager(new GridLayoutManager(this, 2));
     }
 
     private void carregarVeiculos() {

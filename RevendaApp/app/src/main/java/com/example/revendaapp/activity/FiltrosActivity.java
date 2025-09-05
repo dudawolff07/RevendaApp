@@ -1,4 +1,4 @@
-package com.example.revendaapp.ui.filtros;
+package com.example.revendaapp.activity;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

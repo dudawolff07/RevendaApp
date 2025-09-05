@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements VeiculoAdapter.On
     }
 
     private void abrirFiltros() {
-        Intent intent = new Intent(this, com.example.revendaapp.ui.filtros.FiltrosActivity.class);
+        Intent intent = new Intent(this, com.example.revendaapp.activity.FiltrosActivity.class);
         startActivity(intent);
     }
 

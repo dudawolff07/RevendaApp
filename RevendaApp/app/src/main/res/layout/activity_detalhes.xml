@@ -1,65 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/rev_bg_app">
+    android:background="@color/rev_bg_app"
+    android:fontFamily="@font/opensans">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <include layout="@layout/include_toolbar"/>
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPagerImagens"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:layout_marginTop="12dp"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerImagens"
+                android:layout_width="match_parent"
+                android:layout_height="220dp" />
+
+            <ImageView
+                android:id="@+id/btnPrevious"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_left"
+                android:contentDescription="Imagem anterior"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+            <ImageView
+                android:id="@+id/btnNext"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_arrow_left"
+                android:contentDescription="Próxima imagem"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/layoutIndicadores"
-            android:orientation="horizontal"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"/>
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp" />
 
-        <TextView
-            android:id="@+id/tvModeloDetalhe"
-            android:text="Modelo X"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/rev_title"
-            android:layout_marginTop="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="16dp">
 
-        <TextView
-            android:id="@+id/tvMarcaCorAno"
-            android:text="Marca • Cor • 2025"
-            android:textColor="@color/rev_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvModeloDetalhe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="StepWay"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center" />
 
-        <TextView
-            android:id="@+id/tvPrecoDetalhe"
-            android:text="R$ 0,00"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@color/rev_title"
-            android:layout_marginTop="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvAno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2023"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginTop="4dp" />
 
-        <Button
-            android:id="@+id/btnFavoritarDetalhes"
-            android:text="Favoritar"
-            android:textColor="@color/white"
-            android:background="@color/rev_bg_shape"
-            android:layout_marginTop="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvMarcaCor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Renault - Branco"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/tvPreco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Preço:"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:id="@+id/tvPrecoDetalhe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R$83.000,00"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.revendaapp.R;
@@ -79,21 +78,19 @@ public class MainActivity extends AppCompatActivity implements VeiculoAdapter.On
     }
 
     private void abrirFiltros() {
-        Intent intent = new Intent(this, FiltrosActivity.class);
+        Intent intent = new Intent(this, com.example.revendaapp.ui.filtros.FiltrosActivity.class);
         startActivity(intent);
     }
 
     private void fazerLogout() {
         Toast.makeText(this, "Logout realizado", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, com.example.revendaapp.activity.LoginActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 
     @Override
     public void onItemClick(Veiculo veiculo) {
-        Intent intent = new Intent(this, com.example.revendaapp.activity.DetalhesActivity.class);
-        intent.putExtra("veiculo", veiculo);
-        startActivity(intent);
+        Toast.makeText(this, "Selecionado: " + veiculo.getModelo(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -109,5 +106,18 @@ public class MainActivity extends AppCompatActivity implements VeiculoAdapter.On
         }
 
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onDetalhesClick(Veiculo veiculo) {
+        Intent intent = new Intent(this, DetalhesActivity.class);
+        intent.putExtra("veiculo", veiculo);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        carregarVeiculos();
     }
 }

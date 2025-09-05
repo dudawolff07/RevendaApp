@@ -1,36 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drawerLayout"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:background="@color/rev_bg_app">
-
+    android:background="#E0E0E0">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Cabeçalho com fundo arredondado -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/bg_header"
+            android:elevation="4dp">
+
+            <!-- Título e botão filtro -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_botao_principal">
+
+                <!-- Logo e título -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name"
+                        android:fontFamily="@font/glikerbold"
+                        android:textColor="@color/rev_title"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/revenda"
+                        android:fontFamily="@font/glikerbold"
+                        android:textColor="@color/rev_title"
+                        android:textSize="24sp"
+                        android:layout_marginTop="-4dp"/>
+                </LinearLayout>
+
+                <!-- Botões Filtrar e Ordenar -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_button"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btnFiltrar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/filtro"
+                        android:text="@string/filtros"
+                        android:textColor="#000000"
+                        android:background="@android:color/transparent"
+                        android:textSize="14sp"
+                        style="?attr/borderlessButtonStyle" />
 
 
-        <include layout="@layout/include_toolbar"/>
+                </LinearLayout>
+            </LinearLayout>
 
+            <!-- Linha com botão sair e FAB central -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:background="@drawable/bg_header">
 
+                <Button
+                    android:id="@+id/btnSair"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SAIR"
+                    android:textAllCaps="true"
+                    android:textColor="#000000"
+                    android:drawableLeft="@drawable/ic_logout"
+                    android:background="@android:color/transparent"
+                    android:textSize="14sp"
+                    android:padding="8dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Lista de veículos em cards -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvVeiculos"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:padding="8dp"
-            android:clipToPadding="false"/>
+            android:clipToPadding="false"
+            android:background="@android:color/transparent"/>
     </LinearLayout>
-
-
-    <FrameLayout
-        android:id="@+id/drawerContainer"
-        android:layout_width="300dp"
+    <include
+        android:id="@+id/filter_sidebar"
+        layout="@layout/layout_filtros"
+        android:layout_width="320dp"
         android:layout_height="match_parent"
-        android:layout_gravity="end">
-        <include layout="@layout/layout_filtros" />
-    </FrameLayout>
+        android:layout_gravity="end"/>
+
 </androidx.drawerlayout.widget.DrawerLayout>

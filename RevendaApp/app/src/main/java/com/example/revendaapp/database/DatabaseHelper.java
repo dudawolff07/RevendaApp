@@ -40,7 +40,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "ano INTEGER," +
                 "cor TEXT NOT NULL," +     // idem: poderia ser FK_idCor
                 "preco REAL," +
-                "fotoCapa TEXT" +
+                "fotoCapa TEXT," +
+                "fotos_carrossel TEXT" +
                 ");");
 
         db.execSQL("CREATE TABLE fotos (" +
@@ -91,5 +92,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS marca");
         db.execSQL("DROP TABLE IF EXISTS usuario");
         onCreate(db);
+    }
+
+    @Override
+    public synchronized void close() {
+        super.close();
     }
 }

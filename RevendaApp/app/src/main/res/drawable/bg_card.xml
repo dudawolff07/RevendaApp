@@ -1,5 +1,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
-    <solid android:color="@color/rev_icon" /> <!-- cinza claro do fundo -->
+    <solid android:color="@color/rev_icon" />
     <corners android:radius="16dp"/>
-    <stroke android:width="5dp" android:color="@color/rev_outline"/> <!-- borda cinza escura -->
+    <stroke android:width="5dp" android:color="@color/rev_outline"/>
 </shape>

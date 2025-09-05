@@ -1,70 +1,101 @@
-package com.example.revendaapp.activity;
+package com.example.revendaapp.ui.filtros;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.CheckBox;
-import android.widget.GridLayout;
-
+import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import com.example.revendaapp.R;
 import com.example.revendaapp.database.DatabaseHelper;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FiltrosActivity extends AppCompatActivity {
 
-    private GridLayout layoutMarcas, layoutCores;
+    private LinearLayout containerMarcas;
+    private LinearLayout containerCores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_filtros);
+        setContentView(R.layout.layout_filtros);
 
-        layoutMarcas = findViewById(R.id.layoutMarcas);
-        layoutCores = findViewById(R.id.layoutCores);
+        containerMarcas = findViewById(R.id.containerMarcas);
+        containerCores = findViewById(R.id.containerCores);
 
-        carregarMarcas();
-        carregarCores();
+        new LoadFiltrosTask().execute();
     }
 
-    private void carregarMarcas() {
-        DatabaseHelper dbHelper = new DatabaseHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
+    private class LoadFiltrosTask extends AsyncTask<Void, Void, FiltrosData> {
+        @Override
+        protected FiltrosData doInBackground(Void... voids) {
+            DatabaseHelper dbHelper = new DatabaseHelper(FiltrosActivity.this);
+            SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT nome FROM marca", null);
-        if (cursor.moveToFirst()) {
-            do {
-                String nomeMarca = cursor.getString(0);
+            List<String> marcas = new ArrayList<>();
+            List<String> cores = new ArrayList<>();
 
-                CheckBox cb = new CheckBox(this);
-                cb.setText(nomeMarca);
-                cb.setTextColor(ContextCompat.getColor(this, R.color.rev_text_sidebar));
+            Cursor cursorMarca = db.rawQuery("SELECT nome FROM marca", null);
+            while (cursorMarca.moveToNext()) {
+                marcas.add(cursorMarca.getString(0));
+            }
+            cursorMarca.close();
 
-                layoutMarcas.addView(cb);
-            } while (cursor.moveToNext());
+            Cursor cursorCor = db.rawQuery("SELECT nome FROM cor", null);
+            while (cursorCor.moveToNext()) {
+                cores.add(cursorCor.getString(0));
+            }
+            cursorCor.close();
+
+            db.close();
+            return new FiltrosData(marcas, cores);
         }
-        cursor.close();
-        db.close();
+
+        @Override
+        protected void onPostExecute(FiltrosData filtrosData) {
+            preencherMarcas(filtrosData.marcas);
+            preencherCores(filtrosData.cores);
+        }
     }
 
-    private void carregarCores() {
-        DatabaseHelper dbHelper = new DatabaseHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-
-        Cursor cursor = db.rawQuery("SELECT nome FROM cor", null);
-        if (cursor.moveToFirst()) {
-            do {
-                String nomeCor = cursor.getString(0);
-
-                CheckBox cb = new CheckBox(this);
-                cb.setText(nomeCor);
-                cb.setTextColor(ContextCompat.getColor(this, R.color.rev_text_sidebar));
-
-                layoutCores.addView(cb);
-            } while (cursor.moveToNext());
+    private void preencherMarcas(List<String> marcas) {
+        containerMarcas.removeAllViews();
+        for (String marca : marcas) {
+            CheckBox checkBox = new CheckBox(this);
+            checkBox.setText(marca);
+            checkBox.setTag(marca);
+            checkBox.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            ));
+            checkBox.setPadding(0, 0, 0, 16);
+            containerMarcas.addView(checkBox);
         }
-        cursor.close();
-        db.close();
+    }
+
+    private void preencherCores(List<String> cores) {
+        containerCores.removeAllViews();
+        for (String cor : cores) {
+            CheckBox checkBox = new CheckBox(this);
+            checkBox.setText(cor);
+            checkBox.setTag(cor);
+            checkBox.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            ));
+            checkBox.setPadding(0, 0, 0, 16);
+            containerCores.addView(checkBox);
+        }
+    }
+
+    private static class FiltrosData {
+        List<String> marcas;
+        List<String> cores;
+        FiltrosData(List<String> marcas, List<String> cores) {
+            this.marcas = marcas;
+            this.cores = cores;
+        }
     }
 }

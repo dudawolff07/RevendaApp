@@ -1,22 +1,27 @@
 package com.example.revendaapp.activity;
 
-import com.example.revendaapp.R;
-import com.example.revendaapp.adapter.VeiculoAdapter;
-import com.example.revendaapp.database.VeiculoDAO;
-import com.example.revendaapp.model.Veiculo;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.revendaapp.R;
+import com.example.revendaapp.adapter.VeiculoAdminAdapter;
+import com.example.revendaapp.database.VeiculoDAO;
+import com.example.revendaapp.model.Veiculo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -24,11 +29,12 @@ import java.util.List;
 public class AdminMainActivity extends AppCompatActivity {
 
     private RecyclerView rvVeiculosAdmin;
-    private VeiculoAdapter veiculoAdapter;
+    private VeiculoAdminAdapter veiculoAdminAdapter;
     private VeiculoDAO veiculoDAO;
 
     private final ActivityResultLauncher<Intent> criarVeiculoLauncher =
-            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> carregarVeiculos());
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+                    result -> carregarVeiculos());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +45,11 @@ public class AdminMainActivity extends AppCompatActivity {
 
         // RecyclerView
         rvVeiculosAdmin = findViewById(R.id.rvVeiculosAdmin);
-        rvVeiculosAdmin.setLayoutManager(new LinearLayoutManager(this));
+        rvVeiculosAdmin.setLayoutManager(new GridLayoutManager(this, 2));
 
-        // Adapter
-        veiculoAdapter = new VeiculoAdapter(this, veiculoDAO.listarVeiculos(), new VeiculoAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(Veiculo veiculo) {
-                Toast.makeText(AdminMainActivity.this, "Selecionado: " + veiculo.getModelo(), Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onFavoritoClick(Veiculo veiculo) {
-                Toast.makeText(AdminMainActivity.this, "Favorito: " + veiculo.getModelo(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        rvVeiculosAdmin.setAdapter(veiculoAdapter);
+        // Adapter específico para admin
+        veiculoAdminAdapter = new VeiculoAdminAdapter(this, veiculoDAO.listarVeiculos());
+        rvVeiculosAdmin.setAdapter(veiculoAdminAdapter);
 
         FloatingActionButton fabAdicionar = findViewById(R.id.fabAdicionar);
         fabAdicionar.setOnClickListener(v -> {
@@ -63,12 +57,44 @@ public class AdminMainActivity extends AppCompatActivity {
             criarVeiculoLauncher.launch(intent);
         });
 
+        // Sidebar de filtros
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        Button btnFiltrar = findViewById(R.id.btnFiltrar);
+
+        btnFiltrar.setOnClickListener(v -> {
+            carregarFiltrosSidebar();
+            drawerLayout.openDrawer(Gravity.END);
+        });
+
         carregarVeiculos();
     }
 
     private void carregarVeiculos() {
         List<Veiculo> lista = veiculoDAO.listarVeiculos();
-        veiculoAdapter.atualizarLista(lista);
+        veiculoAdminAdapter.atualizarLista(lista);
+    }
+
+    private void carregarFiltrosSidebar() {
+        LinearLayout containerMarcas = findViewById(R.id.containerMarcas);
+        LinearLayout containerCores = findViewById(R.id.containerCores);
+
+        containerMarcas.removeAllViews();
+        containerCores.removeAllViews();
+
+        List<String> marcas = veiculoDAO.listarMarcas();
+        List<String> cores = veiculoDAO.listarCores();
+
+        for (String marca : marcas) {
+            CheckBox checkBox = new CheckBox(this);
+            checkBox.setText(marca);
+            containerMarcas.addView(checkBox);
+        }
+
+        for (String cor : cores) {
+            CheckBox checkBox = new CheckBox(this);
+            checkBox.setText(cor);
+            containerCores.addView(checkBox);
+        }
     }
 
     @Override
@@ -90,5 +116,11 @@ public class AdminMainActivity extends AppCompatActivity {
         Toast.makeText(this, "Logout realizado", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, LoginActivity.class));
         finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        carregarVeiculos();
     }
 }

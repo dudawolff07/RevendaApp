@@ -26,13 +26,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+        <!-- Divisor -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EEEEEE"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
         <!-- Preço -->
         <TextView
             android:text="Preço"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/rev_text_sidebar"
-            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -49,11 +56,18 @@
                 android:background="@drawable/bg_input"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:padding="12dp"/>
 
-            <Space
-                android:layout_width="8dp"
-                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="-"
+                android:textSize="16sp"
+                android:textColor="@color/rev_text_sidebar"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"/>
 
             <EditText
                 android:id="@+id/etPrecoMax"
@@ -62,7 +76,8 @@
                 android:background="@drawable/bg_input"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:padding="12dp"/>
         </LinearLayout>
 
         <com.google.android.material.slider.RangeSlider
@@ -72,7 +87,15 @@
             android:valueFrom="20000"
             android:valueTo="100000"
             app:values="@array/preco_inicial"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="16dp"/>
+
+        <!-- Divisor -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EEEEEE"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
 
         <!-- Marca -->
         <TextView
@@ -80,7 +103,6 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/rev_text_sidebar"
-            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -91,13 +113,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"/>
 
+        <!-- Divisor -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EEEEEE"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
         <!-- Cor -->
         <TextView
             android:text="Cor"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/rev_text_sidebar"
-            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -108,13 +137,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"/>
 
+        <!-- Divisor -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EEEEEE"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
         <!-- Ordem -->
         <TextView
             android:text="Ordem"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/rev_text_sidebar"
-            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -129,25 +165,29 @@
                 android:id="@+id/rbMaisCaro"
                 android:text="Do mais caro ao mais barato"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
 
             <RadioButton
                 android:id="@+id/rbMaisBarato"
                 android:text="Do mais barato ao mais caro"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
 
             <RadioButton
                 android:id="@+id/rbAlfabetica"
                 android:text="Ordem alfabética"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
 
             <RadioButton
                 android:id="@+id/rbMaisNovo"
                 android:text="Mais novo ao mais antigo"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
 
             <RadioButton
                 android:id="@+id/rbMaisAntigo"
@@ -156,14 +196,20 @@
                 android:layout_height="wrap_content"/>
         </RadioGroup>
 
+        <!-- Divisor -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EEEEEE"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
 
         <!-- Botões -->
         <LinearLayout
             android:orientation="horizontal"
-            android:gravity="end"
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:weightSum="2">
 
             <Button
                 android:id="@+id/btnLimpar"
@@ -171,8 +217,10 @@
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:background="@drawable/btn_clear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"/>
 
             <Button
                 android:id="@+id/btnAplicar"
@@ -180,9 +228,9 @@
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:background="@drawable/btn_apply"
-                android:layout_marginStart="12dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
